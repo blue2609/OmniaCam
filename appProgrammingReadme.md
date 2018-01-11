@@ -4,7 +4,7 @@ The app was coded so that any request to open the URL which is in the format of 
 
 The app will then extract patient data from the `[patient_information]` passed to it and will create folders to save images taken for those patients. The patient data will then be used to name the corresponding patient folders/images inside the device storage system. 
 
-In order to achieve this, several cordova plugins were utilised. However, only 2 of them are essential to the core functionality of the app:
+In order to achieve this, several cordova plugins were utilised. Each of them is  essential to the core functionality of the app.
 
 &nbsp;
 
@@ -25,7 +25,7 @@ This indicates that whenever the mobile browser requests that URL, the device wi
     </universal-links>
 ```
 
-The asterisk (*) indicates that the app will be opened regardless of what kind of string follows `omniacam.php` in the URL.  
+The asterisk (\*) indicates that the app will be opened regardless of what kind of string follows `omniacam.php` in the URL.  
 
 3. Go to index.js, inside the `onDeviceReady: function()` the event `linkFunctionHandler` is subscribed to a  javaScript function named `linkFunctionHandler()` like this:
 
@@ -59,16 +59,16 @@ The URL which made the app executed this function was http://www.omniacorp.com.a
 
 &nbsp;
 
-# cordova-plugin-camera-with-exif
+## cordova-plugin-camera-with-exif
 
 This plugin enables the app to take pictures and extract the EXIF data from the picture that was taken by the camera. EXIF **(Exchangable Image File Format)** data contains many information about a picture that is taken by the device's camera. It can tell user the GPS coordinate where the image was taken, the date/time stamp when the image was taken. The latitude/longitude where the images was taken, etc. 
 
 Therefore, using this plugin also makes it possible to extract the date/time stamp of each picture taken by the camera and subsequently rename the image taken with this date/time stamp.
 
 In order to utilise this plugin, a function called `takingPictures(eventData,parentDirectory)` is added and it takes 2 parameters:
-1. eventData is the object passed the linkFunctionHandler() function and it contains the URL that opens the app as well as the corresponding patient information that is passed to the app from the mobile browser. 
+1. `eventData` is the object passed the `linkFunctionHandler()` function and it contains the URL that opens the app as well as the corresponding patient information that is passed to the app from the mobile browser. 
 
-2. `parentDirectory` is the name of the directory the app wants the image to be saved. If the blue button is pressed then the name of this `parentDirectory` shall be **Patient Pictures** and if the green button is pressed then the name of parentDirectory will be **Treatment Sheet Pictures**
+2. `parentDirectory` is the name of the directory the app wants the image to be saved. If the blue button is pressed then the name of this `parentDirectory` shall be named **Patient Pictures** and if the green button is pressed then the name of parentDirectory will be **Treatment Sheet Pictures**
 
 The structure of this function is as follow: 
 
@@ -113,17 +113,17 @@ function takingPictures(eventData,parentDirectory){
         ===============================================================================================================
         */
 
-        window.resolveLocalFileSystemURL(imageFileURI,function(fileEntry){
+       window.resolveLocalFileSystemURL(imageFileURI,function(fileEntry){
 
 
-            cordova.plugins.diagnostic.getExternalSdCardDetails(function(details){
+            cordova.plugins.diagnostic.getExternalSdCardDetails(function(sdCardArray){
 
                 //save to external SD card if there's any on the device
-                if(details.length > 0){
-                    details.forEach(function(detail){
-                        if(detail.canWrite && detail.type == "application"){
+                if(sdCardArray.length > 0){
+                    sdCardArray.forEach(function(sdCard){
+                        if(sdCard.canWrite && sdCard.type == "application"){
 
-                            saveToNewPath(fileEntry,newImageName,detail.filePath,consFolderName,parentDirectory);
+                            saveToNewPath(fileEntry,newImageName,sdCard.filePath,consFolderName,parentDirectory);
                         }
                     });
 
@@ -149,3 +149,123 @@ function takingPictures(eventData,parentDirectory){
 
 };
 ```
+
+
+## cordova.plugins.diagnostic
+
+In the previous section of the *cordova-plugin-camera-with-exif*, this block of code can be seen:
+
+```
+   /*
+        ===============================================================================================================
+                                  THIS SECTION BELOW IS MEANT TO MOVE THE IMAGE FILE TO:
+                  <root directory folder>/Consultation Images/cons_[consNumber]/{Patient Pictures OR Treament Sheet Pictures}
+        ===============================================================================================================
+        */
+
+       window.resolveLocalFileSystemURL(imageFileURI,function(fileEntry){
+
+
+            cordova.plugins.diagnostic.getExternalSdCardDetails(function(sdCardArray){
+
+                //save to external SD card if there's any on the device
+                if(sdCardArray.length > 0){
+                    sdCardArray.forEach(function(sdCard){
+                        if(sdCard.canWrite && sdCard.type == "application"){
+
+                            saveToNewPath(fileEntry,newImageName,sdCard.filePath,consFolderName,parentDirectory);
+                        }
+                    });
+
+                //otherwise, save it to the device's internal storage 
+                //with root folder as the new parent directory
+                } else{
+                    saveToNewPath(fileEntry,newImageName,cordova.file.externalRootDirectory,consFolderName,parentDirectory);
+                }
+
+            }, function(error){
+                console.error(error);
+                console.log("Have trouble with storing in SD Card");
+            });
+          
+        },onErrorGettingImageFileEntry);
+```
+
+This block of code uses the cordova.plugin.diagnostic API to detect any presence of external SD Card inside the device storage system. Unlike other plugins, the usage of this API is quite straightforward:
+
+1. The function `cordova.plugins.diagnostic.getExternalSdCardDetails(function(sdCardArray))` detects the presence of external SD Card inside the device. It will then create an array named `sdCardArray` which contains `sdCard` object as its elements. 
+
+Subsequently, a simple check is necessary to find out whether the array is empty (no external SD Card detected). This is simply done by:
+ 
+```
+//scan the presence of external SD Cards
+if(sdCardArray.length > 0){
+ 
+      //scan each sdCard object
+      
+ }else{
+      
+      //no external SD Card detected, save to internal storage
+ }
+ 
+```
+
+3. Scan each sdCard object until the app finds an external SD Card sandboxed storage for the app that is writable. Next,go to the specified subdirectory folder where the image will be saved by using the `saveToNewPath()` function. The `saveToNewPath()` function will automatically create the subdirectory structure if it hasn't been created. 
+
+```
+sdCardArray.forEach(function(sdCard){
+   if(sdCard.canWrite && sdCard.type == "application"){
+
+       saveToNewPath(fileEntry,newImageName,sdCard.filePath,consFolderName,parentDirectory);
+   }
+});
+```
+
+&nbsp;
+
+&nbsp;
+
+## cordova-plugin-file
+
+The `saveToNewPath()` function from the previous 2 sections utilise the API offered by cordova-plugin-file. This plugin enables the creation of new directories inside an Android device's file system and it's also responsible for the renaming process of the image file taken by the camera. 
+
+
+```
+function saveToNewPath(fileEntry,newImageName,rootDirectory,consFolderName,parentDirectory){
+
+    var rootDirectory = rootDirectory;
+
+    /* 
+    ========================================================================
+                                SAVE FILE TO:
+    <rootDirectory>/Consulation Images/consFolderName/parentDirectory
+    ========================================================================
+    */
+    window.resolveLocalFileSystemURL(rootDirectory,function(rootDirEntry){
+
+        rootDirEntry.getDirectory("Consultation Images", {create: true}, function(imgDirEntry){
+            imgDirEntry.getDirectory(consFolderName, {create: true}, function(consDirEntry){
+                consDirEntry.getDirectory(parentDirectory, {create: true}, function(parentDirEntry){
+
+                    // move the file entry to new directory
+                    fileEntry.moveTo(parentDirEntry, newImageName, function(newFileEntry){
+
+                        console.log("The new file entry full path is " + newFileEntry.fullPath);
+
+                    }, function(Error){
+                        console.log("the move operation has failed");
+                    });
+
+                }, onErrorCreatingParentDirEntry);
+
+            }, onErrorCreatingConsDirEntry);
+        }, onErrorCreatingImagesDirEntry);
+
+    });
+
+}
+
+```
+
+The code used here is quite straightforward and self-explanatory. 
+
