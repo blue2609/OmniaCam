@@ -1,3 +1,16 @@
+Table of Contents
+=================
+
+   * [Overview of the app programming](#overview-of-the-app-programming)
+      * [cordova-universal-links-plugin](#cordova-universal-links-plugin)
+      * [cordova-plugin-camera-with-exif](#cordova-plugin-camera-with-exif)
+      * [cordova.plugins.diagnostic](#cordovapluginsdiagnostic)
+      * [cordova-plugin-file](#cordova-plugin-file)
+
+&nbsp;
+&nbsp;
+
+
 # Overview of the app programming
 
 The app was coded so that any request to open the URL which is in the format of `www.omniacorp.com.au//cosme/site/inc/omniacam.php?[patient_information]` will open the app on the device it's installed on instead of redirecting its mobile browser to another web page. 
