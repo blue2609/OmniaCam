@@ -2,10 +2,10 @@ Table of Contents
 =================
 
    * [OmniaCam](#omniacam)
-         * [the App name and Icon](#the-app-name-and-icon)
-         * [Nothing shows up when app is opened on its own](#nothing-shows-up-when-app-is-opened-on-its-own)
+      * [the App name and Icon](#the-app-name-and-icon)
+      * [Nothing shows up when app is opened on its own](#nothing-shows-up-when-app-is-opened-on-its-own)
    * [How it works](#how-it-works)
-   * [VIDEO DEMONSTRATION](#video-demonstration)
+   * [Video Demonstration](#video-demonstration)
       * [Taking Patient Pictures](#taking-patient-pictures)
       * [Taking Treatment Sheet Pictures](#taking-treatment-sheet-pictures)
    * [How Images are Saved](#how-images-are-saved)
@@ -78,7 +78,7 @@ https://www.youtube.com/edit?o=U&video_id=Ow339h15r_o
 
 # How Images are Saved
 
-### Image file name
+## Image file name
 
 Each image taken will be named **[patient_consultationID]_[yyyymmdd]_[hhmmss]**, where:
 - **patient_consultationID** is the consultation ID of the corresponding patient given by the website that opens the app
@@ -101,7 +101,7 @@ As such, this particular image was named **5_20180110_082745.jpg**
 #Where Imagas are Saved
 
 
-### The subdirectory structure
+## The subdirectory structure
 
 The subdirectory created by the app to save images is rooted at **Consultation Images**
 
@@ -127,11 +127,11 @@ When user chooses **TAKE PATIENT PICTURES** button, each corresponding image tak
 
 <img src="https://user-images.githubusercontent.com/26863547/34796718-8199ebfa-f6aa-11e7-904e-3a4e21d32dfc.png" width="286" height="495">
 
-### Devices with no external SD Card
+## Devices with no external SD Card
 
 When the app is installed to devices with no external SD Card, just like the Google Pixel XL (1st gen) that I used to test the app on in this case, a subdirectory structure with a root folder named **Consultation Images** will be created in the root path of the device internal storage, usually at `/storage/emulated/0`. 
 
-### Devices with external SD Card
+## Devices with external SD Card
 
 For devices with external SD card, the app will automatically detect the external storage and the subdirectory structure rooted with **Consulatation Images** folder will be created in the app sandboxed storage folder, which is `/storage/emulated/externalSdCard/Android/data/com.OmniaCam.app`.
 
