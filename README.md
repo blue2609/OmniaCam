@@ -66,10 +66,11 @@ When the user presses either **TAKE PATIENT PICTURES** or **TAKE TREATMENT SHEET
 # Video Demonstration
 
 ## Taking Patient Pictures
-https://vimeo.com/250555765
+[Taking Patient Pictures Demonstration](https://vimeo.com/250555765)
 
 ## Taking Treatment Sheet Pictures
-https://vimeo.com/250555948
+[Taking Treatment Sheet Pictures Demonstration](https://vimeo.com/250555765)
+
 
 &nbsp;
 
