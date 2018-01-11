@@ -1,7 +1,6 @@
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
    * [Overview of the app programming](#overview-of-the-app-programming)
       * [Link a specific URL to the app [cordova-universal-links-plugin]](#link-a-specific-url-to-the-app-cordova-universal-links-plugin)
       * [Make the app capable of taking pictures and extract pictures metadata [cordova-plugin-camera-with-exif]](#make-the-app-capable-of-taking-pictures-and-extract-pictures-metadata-cordova-plugin-camera-with-exif)
