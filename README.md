@@ -92,14 +92,14 @@ As such, this particular image was named **5_20180110_082745.jpg**
 
 <img src="https://user-images.githubusercontent.com/26863547/34797611-15b617d0-f6ad-11e7-82da-189d262483aa.png">
 
-&nbpsp;
+&nbsp;
 
 &nbsp;
 
-#Where Imagas are Saved
+## Where Imagas are Saved
 
 
-## The subdirectory structure
+### The subdirectory structure
 
 The subdirectory created by the app to save images is rooted at **Consultation Images**
 
@@ -125,11 +125,11 @@ When user chooses **TAKE PATIENT PICTURES** button, each corresponding image tak
 
 <img src="https://user-images.githubusercontent.com/26863547/34796718-8199ebfa-f6aa-11e7-904e-3a4e21d32dfc.png" width="286" height="495">
 
-## Devices with no external SD Card
+### Devices with no external SD Card
 
 When the app is installed to devices with no external SD Card, just like the Google Pixel XL (1st gen) that I used to test the app on in this case, a subdirectory structure with a root folder named **Consultation Images** will be created in the root path of the device internal storage, usually at `/storage/emulated/0`. 
 
-## Devices with external SD Card
+### Devices with external SD Card
 
 For devices with external SD card, the app will automatically detect the external storage and the subdirectory structure rooted with **Consulatation Images** folder will be created in the app sandboxed storage folder, which is `/storage/emulated/externalSdCard/Android/data/com.OmniaCam.app`.
 
