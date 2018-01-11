@@ -1,3 +1,20 @@
+Table of Contents
+=================
+
+   * [OmniaCam](#omniacam)
+         * [the App name and Icon](#the-app-name-and-icon)
+         * [Nothing shows up when app is opened on its own](#nothing-shows-up-when-app-is-opened-on-its-own)
+   * [How it works](#how-it-works)
+   * [VIDEO DEMONSTRATION](#video-demonstration)
+      * [Taking Patient Pictures](#taking-patient-pictures)
+      * [Taking Treatment Sheet Pictures](#taking-treatment-sheet-pictures)
+   * [How Images are Saved](#how-images-are-saved)
+         * [Image file name](#image-file-name)
+         * [The subdirectory structure](#the-subdirectory-structure)
+         * [Devices with no external SD Card](#devices-with-no-external-sd-card)
+         * [Devices with external SD Card](#devices-with-external-sd-card)
+
+
 # OmniaCam
 A simple camera app that allows you to take multiple pictures and save each picture in dateTimeStamp format to external SD Card (if available)
 
