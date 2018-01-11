@@ -76,6 +76,10 @@ The structure of this function is as follow:
 ```
 function takingPictures(eventData,parentDirectory){
 
+    // Define the options for camera
+    var options = { correctOrientation: true,
+                    quality: 100};
+
     //below is the method that is provided by the plugin camera API
     navigator.camera.getPicture(function cameraSuccessCallBack(result){
 
@@ -94,21 +98,12 @@ function takingPictures(eventData,parentDirectory){
         dateTimeStamp = dateTimeStamp.replace(/\s/g, '_');
         dateTimeStamp = dateTimeStamp.replace(/:/g, '');
 
-        console.log("the image file URI is " + imageFileURI);
-        console.log("The URL that opened the camera is " + eventData.url);
-        console.log("The URL path component that opened the camera is " + eventData.url);
-        console.log("The type query parameter passed is " + eventData.params['type']);
-        console.log("The consultation number parameter passed is " + eventData.params['code']);
-        console.log("The date and time stamp is " + dateTimeStamp);
-
 
         //save consultation and date/time number in a variable
         var consNumber = eventData.params['code'];
         var consFolderName = "cons_" + consNumber;
         var imageFormat = imageFileURI.substring(imageFileURI.lastIndexOf('.'));
         var newImageName = consNumber + "_" + dateTimeStamp + imageFormat;
-
-        console.log("The new image name is " + newImageName);
 
 
         /*
