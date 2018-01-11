@@ -268,4 +268,12 @@ function saveToNewPath(fileEntry,newImageName,rootDirectory,consFolderName,paren
 ```
 
 The code used here is quite straightforward and self-explanatory. 
+- *rootDirEntry* refers to either:
+  `/storage/emulated/0 -- internal storage path when there's no external SD Card detected`
+  `/storage/externalSdCard/Android/data/com.OmniaCam.app/files -- the app's sandboxed storage inside the device's external SD Card`
+- *imgDirEntry* is refers to the folder **Consultation Images**
+- *consDiEntry* refers to the **cons_[patient_consultationID]** folder name
+- *parentDirEntry* is either **Patient Pictures** or **Treatment Sheet Pictures** folder where the image itself will be saved
+- *newFileEntry* is the new file entry that points to the new image created after moving the old image to this specified subdirectory.
+
 
