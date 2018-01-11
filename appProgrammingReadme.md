@@ -21,7 +21,7 @@ In order to achieve this, several cordova plugins were utilised. Each of them is
 
 &nbsp;
 
-## cordova-universal-links-plugin
+## Link a specific URL to the app [cordova-universal-links-plugin]
 
 This plugin allows the programmer to create a **link** between a specific URL and a javascript function that your app will execute when this specific URL is requested on the mobile web browser. In this instance, that URL is `www.omniacorp.com.au//cosme/site/inc/omniacam.php?*`
 
@@ -72,7 +72,7 @@ The URL which made the app executed this function was http://www.omniacorp.com.a
 
 &nbsp;
 
-## cordova-plugin-camera-with-exif
+## Make the app capable of taking pictures and extract pictures metadata [cordova-plugin-camera-with-exif]
 
 This plugin enables the app to take pictures and extract the EXIF data from the picture that was taken by the camera. EXIF **(Exchangable Image File Format)** data contains many information about a picture that is taken by the device's camera. It can tell user the GPS coordinate where the image was taken, the date/time stamp when the image was taken. The latitude/longitude where the images was taken, etc. 
 
@@ -166,7 +166,7 @@ function takingPictures(eventData,parentDirectory){
 
 &nbsp;
 
-## cordova.plugins.diagnostic
+## Detecting the presence of external SD Card(s) [cordova.plugins.diagnostic]
 
 In the previous section of the *cordova-plugin-camera-with-exif*, this block of code can be seen:
 
@@ -240,7 +240,7 @@ sdCardArray.forEach(function(sdCard){
 
 &nbsp;
 
-## cordova-plugin-file
+## Moving the image file to a new subdirectory and rename the image [cordova-plugin-file]
 
 The `saveToNewPath()` function from the previous 2 sections utilise the API offered by cordova-plugin-file. This plugin enables the creation of new directories inside an Android device's file system and it's also responsible for the renaming process of the image file taken by the camera. 
 
