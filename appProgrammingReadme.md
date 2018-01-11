@@ -1,11 +1,12 @@
 Table of Contents
 =================
 
+   * [Table of Contents](#table-of-contents)
    * [Overview of the app programming](#overview-of-the-app-programming)
-      * [cordova-universal-links-plugin](#cordova-universal-links-plugin)
-      * [cordova-plugin-camera-with-exif](#cordova-plugin-camera-with-exif)
-      * [cordova.plugins.diagnostic](#cordovapluginsdiagnostic)
-      * [cordova-plugin-file](#cordova-plugin-file)
+      * [Link a specific URL to the app [cordova-universal-links-plugin]](#link-a-specific-url-to-the-app-cordova-universal-links-plugin)
+      * [Make the app capable of taking pictures and extract pictures metadata [cordova-plugin-camera-with-exif]](#make-the-app-capable-of-taking-pictures-and-extract-pictures-metadata-cordova-plugin-camera-with-exif)
+      * [Detecting the presence of external SD Card(s) [cordova.plugins.diagnostic]](#detecting-the-presence-of-external-sd-cards-cordovapluginsdiagnostic)
+      * [Moving the image file to a new subdirectory and rename the image [cordova-plugin-file]](#moving-the-image-file-to-a-new-subdirectory-and-rename-the-image-cordova-plugin-file)
 
 &nbsp;
 &nbsp;
