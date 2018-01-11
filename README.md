@@ -1,6 +1,7 @@
 Table of Contents
 =================
 
+   * [Table of Contents](#table-of-contents)
    * [OmniaCam](#omniacam)
       * [the App name and Icon](#the-app-name-and-icon)
       * [Nothing shows up when app is opened on its own](#nothing-shows-up-when-app-is-opened-on-its-own)
@@ -10,9 +11,10 @@ Table of Contents
       * [Taking Treatment Sheet Pictures](#taking-treatment-sheet-pictures)
    * [How Images are Saved](#how-images-are-saved)
       * [Image file name](#image-file-name)
-      * [The subdirectory structure](#the-subdirectory-structure)
-      * [Devices with no external SD Card](#devices-with-no-external-sd-card)
-      * [Devices with external SD Card](#devices-with-external-sd-card)
+      * [Where Imagas are Saved](#where-imagas-are-saved)
+         * [The subdirectory structure](#the-subdirectory-structure)
+         * [Devices with no external SD Card](#devices-with-no-external-sd-card)
+         * [Devices with external SD Card](#devices-with-external-sd-card)
 
 
 # OmniaCam
