@@ -25,7 +25,7 @@ This indicates that whenever the mobile browser requests that URL, the device wi
     </universal-links>
 ```
 
-The asterisk (\*) indicates that the app will be opened regardless of what kind of string follows `omniacam.php` in the URL.  
+   The asterisk (\*) indicates that the app will be opened regardless of what kind of string follows `omniacam.php` in the URL.  
 
 3. Go to index.js, inside the `onDeviceReady: function()` the event `linkFunctionHandler` is subscribed to a  javaScript function named `linkFunctionHandler()` like this:
 
@@ -48,7 +48,7 @@ function linkFunctionHandler(eventData){
 }
 ```
 
-The outpout of `linkFunctionHandler()` function on terminal in this case would be:
+   The outpout of `linkFunctionHandler()` function on terminal in this case would be:
 
 ```
 The linkFunctionHandler javascript function is executed
