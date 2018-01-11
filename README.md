@@ -18,10 +18,12 @@ Table of Contents
 # OmniaCam
 A simple camera app that allows you to take multiple pictures and save each picture in dateTimeStamp format to external SD Card (if available)
 
-### the App name and Icon
+&nbsp;
+
+## the App name and Icon
 <img src="https://user-images.githubusercontent.com/26863547/34756193-4937564a-f61d-11e7-92d5-0828db818d20.png" width="286" height="495">
 
-### Nothing shows up when app is opened on its own
+## Nothing shows up when app is opened on its own
 <img src="https://user-images.githubusercontent.com/26863547/34756313-05f5cdde-f61e-11e7-9483-8fa7b1efa2b7.png" width="286" height="495">
 
 &nbsp;
@@ -61,7 +63,7 @@ For a little demonstration of the app, please take a look at the video demonstra
 &nbsp;
 
 
-# VIDEO DEMONSTRATION
+# Video Demonstration
 
 ## Taking Patient Pictures
 https://www.youtube.com/edit?o=U&video_id=Qrlq5RYPklk
