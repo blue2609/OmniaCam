@@ -9,10 +9,10 @@ Table of Contents
       * [Taking Patient Pictures](#taking-patient-pictures)
       * [Taking Treatment Sheet Pictures](#taking-treatment-sheet-pictures)
    * [How Images are Saved](#how-images-are-saved)
-         * [Image file name](#image-file-name)
-         * [The subdirectory structure](#the-subdirectory-structure)
-         * [Devices with no external SD Card](#devices-with-no-external-sd-card)
-         * [Devices with external SD Card](#devices-with-external-sd-card)
+      * [Image file name](#image-file-name)
+      * [The subdirectory structure](#the-subdirectory-structure)
+      * [Devices with no external SD Card](#devices-with-no-external-sd-card)
+      * [Devices with external SD Card](#devices-with-external-sd-card)
 
 
 # OmniaCam
